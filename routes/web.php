@@ -29,7 +29,7 @@ Route::controller(AuthorController::class)->group(function () {
     Route::post('/authors', 'createauthor');
 
     //Update an Author
-    Route::put('/authors/{id}', 'updateAuthor');
+    Route::put('/authors/{author}', 'updateAuthor');
 
     //Get Single Author
     Route::get('/authors/{author}', 'singleAuthor');

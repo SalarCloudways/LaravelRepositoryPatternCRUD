@@ -12,10 +12,4 @@ class Author extends Model
     protected $fillable = [
         'name', 'email', 'github', 'twitter'
     ];
-
-    public static $rules = [
-        'name' => 'required | max:255',
-        'email' => 'required | email',
-        'authorID' => 'regex:/^[0-9]*$/',
-    ];
 }

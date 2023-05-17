@@ -13,22 +13,20 @@ class AuthorRepository implements AuthorInterface
     //Show All Authors
     public function allAuthors()
     {
-        return AuthorResource::collection(Author::all());
+        return Author::all();
     }
 
     //Create New Author
     public function createAuthors($data)
     {
-        return new AuthorResource(Author::create($data->all()));
+        return Author::create($data->all());
     }
 
     //Update an Author
-    public function updateAuthor($data, $id)
+    public function updateAuthor($data, $author)
     {
-        $author = Author::findOrFail($id);
         $author->update($data->all());
-
-        return new AuthorResource($author);
+        return $author;
     }
 
     //Delete an Author
@@ -41,6 +39,6 @@ class AuthorRepository implements AuthorInterface
     //Show Single Author
     public function singleAuthor($author){
         $singleAuthor = $author;
-        return new AuthorResource($singleAuthor);
+        return $singleAuthor;
     }
 }
