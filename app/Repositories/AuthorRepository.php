@@ -25,9 +25,22 @@ class AuthorRepository implements AuthorInterface
     //Update an Author
     public function updateAuthor($data, $id)
     {
-        $author = new AuthorResource(Author::findOrFail($id));
+        $author = Author::findOrFail($id);
         $author->update($data->all());
 
-        return $author;
+        return new AuthorResource($author);
+    }
+
+    //Delete an Author
+    public function deleteAuthor($author){
+
+        $author->delete();
+        return Response("Author Deleted Successfully", 200);
+    }
+
+    //Show Single Author
+    public function singleAuthor($author){
+        $singleAuthor = $author;
+        return new AuthorResource($singleAuthor);
     }
 }

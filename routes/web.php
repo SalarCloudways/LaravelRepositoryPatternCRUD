@@ -32,14 +32,8 @@ Route::controller(AuthorController::class)->group(function () {
     Route::put('/authors/{id}', 'updateAuthor');
 
     //Get Single Author
-    Route::get('/authors/{author}', function(Author $author){
-        return new AuthorResource($author);
-    });
+    Route::get('/authors/{author}', 'singleAuthor');
 
     //Delete Author
-    Route::delete('/authors/{author}', function(Author $author){
-
-        $author->delete();
-        return Response("Author Deleted Successfully", 200);
-    });
+    Route::delete('/authors/{author}', 'deleteAuthor');
 });
