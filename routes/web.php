@@ -3,6 +3,7 @@
 use App\Models\Author;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\AuthorResource;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AuthorController;
 
 /*
@@ -36,4 +37,26 @@ Route::controller(AuthorController::class)->group(function () {
 
     //Delete Author
     Route::delete('/authors/{author}', 'deleteAuthor');
+});
+
+Route::controller(PostsController::class)->group(function (){
+
+    //Get All Posts
+    Route::get('/posts', 'allposts');
+
+    //Get All Posts by AuthorID
+    Route::get('/posts/author={authorID}', 'allPostsByAuthor');
+
+    //Get Single Post by ID
+    Route::get('/posts/{post}', 'postById');
+
+    //Create new Post
+    Route::post('/posts', 'createPost');
+
+    //Update Post by ID
+    Route::put('/posts/{post}', 'updatePost');
+
+    //Delete Post by ID
+    Route::delete('/posts/{post}', 'deletePost');
+
 });

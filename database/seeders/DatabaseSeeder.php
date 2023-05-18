@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Posts;
 use App\Models\Author;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         Author::factory(6)->create();
+        Posts::factory(6)->create();
     }
 }

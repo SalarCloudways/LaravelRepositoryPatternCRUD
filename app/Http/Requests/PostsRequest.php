@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AuthorRequest extends FormRequest
+class PostsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,19 +22,19 @@ class AuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required | max:255',
-            'email' => 'required | email',
-            'id' => 'regex:/^[0-9]*$/',
+            'title' => 'required | max:255',
+            'body' => 'required',
+            'author_id' => 'required | regex:/^[0-9]*$/',
         ];
     }
 
     public function messages()
     {
         return [
-            'email.required' => 'Email is required!',
-            'email.email' => 'Email is not formatted correctly!',
-            'name.required' => 'Name is required!',
-            'id.regex' => 'authorID is not formatted correctly!'
+            'title.required' => 'Post Title is required!',
+            'body.required' => 'Post Body is required!',
+            'author_id.regex' => 'authorID is not formatted correctly!',
+            'author_id.required' => 'authorID is required'
         ];
     }
 }

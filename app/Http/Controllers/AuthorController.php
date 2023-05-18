@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use App\Models\Author;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthorRequest;
