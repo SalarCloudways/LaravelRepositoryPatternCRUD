@@ -24,7 +24,7 @@ class AuthorRequest extends FormRequest
         return [
             'name' => 'required | max:255',
             'email' => 'required | email',
-            'id' => 'regex:/^[0-9]*$/',
+            'authorID' => 'regex:/^[0-9]*$/',
         ];
     }
 
@@ -34,7 +34,8 @@ class AuthorRequest extends FormRequest
             'email.required' => 'Email is required!',
             'email.email' => 'Email is not formatted correctly!',
             'name.required' => 'Name is required!',
-            'id.regex' => 'authorID is not formatted correctly!'
+            'authorID.regex' => 'authorID is not formatted correctly!'
         ];
     }
 }
+
