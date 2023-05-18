@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
 use App\Models\Author;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthorRequest;
@@ -56,3 +55,4 @@ class AuthorController extends Controller
         return Response(new AuthorResource($singleauthor), 200);
     }
 }
+
