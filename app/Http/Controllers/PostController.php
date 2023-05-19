@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
+use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Http\Requests\PostsRequest;
+use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostsResource;
-use App\Repositories\Interfaces\PostsInterface;
+use App\Repositories\Interfaces\PostInterface;
 
-class PostsController extends Controller
+class PostController extends Controller
 {
 
     private $postsRepository;
 
-    public function __construct(PostsInterface $postsRepository)
+    public function __construct(PostInterface $postsRepository)
     {
         $this->postsRepository = $postsRepository;
     }
@@ -33,28 +33,27 @@ class PostsController extends Controller
     }
 
     //Get Single Post By ID
-    public function postById(Posts $post){
+    public function postById(Post $post){
 
-        $singlePost = $this->postsRepository->postById($post);
-        return Response(new PostsResource($singlePost), 200);
+        return Response(new PostsResource($post), 200);
     }
 
     //Create Post
-    public function createPost(PostsRequest $request){
+    public function createPost(PostRequest $request){
 
         $createPost = $this->postsRepository->createPost($request);
         return Response(new PostsResource($createPost), 200);
     }
 
     //Delete Post
-    public function deletePost(Posts $post){
+    public function deletePost(Post $post){
 
         $deletePost = $this->postsRepository->deletePost($post);
-        return Response($deletePost, 200);
+        return Response($deletePost === true ? "Post Delete Successfully" : "Post Not Deleted Successfully", 200);
     }
 
     //Update Post By ID
-    public function updatePost(Posts $post, PostsRequest $request){
+    public function updatePost(Post $post, PostRequest $request){
 
         $updatePost = $this->postsRepository->updatePost($post, $request);
         return Response(new PostsResource($updatePost), 200);

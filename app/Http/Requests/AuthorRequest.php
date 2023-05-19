@@ -19,12 +19,14 @@ class AuthorRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
+
+    //This Request is for validation Author Input
     public function rules(): array
     {
         return [
             'name' => 'required | max:255',
             'email' => 'required | email',
-            'authorID' => 'regex:/^[0-9]*$/',
+            'authorID' => 'required | integer',
         ];
     }
 
@@ -38,4 +40,3 @@ class AuthorRequest extends FormRequest
         ];
     }
 }
-

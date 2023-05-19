@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repositories\PostsRepository;
+use App\Repositories\PostRepository;
 use App\Repositories\AuthorRepository;
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Interfaces\PostsInterface;
+use App\Repositories\Interfaces\PostInterface;
 use App\Repositories\Interfaces\AuthorInterface;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(AuthorInterface::class, AuthorRepository::class);
-        $this->app->bind(PostsInterface::class, PostsRepository::class);
+        $this->app->bind(PostInterface::class, PostRepository::class);
     }
 
     /**

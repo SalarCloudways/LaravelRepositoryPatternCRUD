@@ -12,15 +12,19 @@ class PostsResource extends JsonResource
      *
      * @return array<string, mixed>
      */
+
+    // Post with its Author Details
     public function toArray($request)
     {
+        
+        
         return [
             'post_title' => $this->title,
             'post_body' => $this->body,
-            'author_name' => $this->name,
-            'author_email' => $this->email,
-            'author_github' => $this->github,
-            'author_twitter' => $this->twitter
+            'author_name' => $this->author ? $this->author['name'] : null,
+            'author_email' => $this->author ? $this->author['email'] : null,
+            'author_github' => $this->author ? $this->author['github'] : null,
+            'author_twitter' => $this->author ? $this->author['twitter'] : null,
         ];
     }
 }

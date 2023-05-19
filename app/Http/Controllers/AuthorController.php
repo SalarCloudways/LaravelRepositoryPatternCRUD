@@ -55,4 +55,3 @@ class AuthorController extends Controller
         return Response(new AuthorResource($singleauthor), 200);
     }
 }
-

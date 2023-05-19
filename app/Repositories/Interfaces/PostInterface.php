@@ -1,16 +1,13 @@
 <?php
 namespace App\Repositories\Interfaces;
 
-Interface PostsInterface{
+Interface PostInterface{
     
     //Get All Posts
     public function allposts();
 
     //Get All Posts by Same Author
     public function allPostsByAuthor($authorID);
-
-    //Get Single Post by ID
-    public function postById($post);
 
     //Create Post
     public function createPost($data);
