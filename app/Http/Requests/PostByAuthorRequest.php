@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PostByAuthorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,12 +20,10 @@ class PostRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
 
-    //This Request is for validating Post Input
+    //This Request is for validating AuthorID Input
     public function rules(): array
     {
         return [
-            'title' => 'required | max:255',
-            'body' => 'required',
             'author_id' => 'required | integer',
         ];
     }
@@ -33,8 +31,6 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Post Title is required!',
-            'body.required' => 'Post Body is required!',
             'author_id.required' => 'authorID is required'
         ];
     }

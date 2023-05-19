@@ -45,7 +45,7 @@ Route::controller(PostController::class)->group(function (){
     Route::get('/posts', 'allposts');
 
     //Get All Posts by AuthorID
-    Route::get('/posts/author/{authorid}', 'allPostsByAuthor');
+    Route::get('/posts/author', 'allPostsByAuthor');
 
     //Get Single Post by ID
     Route::get('/posts/{post}', 'postById');

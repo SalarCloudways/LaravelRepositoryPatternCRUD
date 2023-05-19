@@ -17,9 +17,9 @@ class PostRepository implements PostInterface
     }
 
     //Get All posts by same Author
-    public function allPostsByAuthor($authorID){
+    public function allPostsByAuthor($author){
 
-        $result = Post::with('author')->where('author_id', $authorID)->get();
+        $result = Post::with('author')->where('author_id', $author['author_id'])->get();
         return $result;
     }
 

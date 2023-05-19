@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostResource;
+use App\Http\Requests\PostByAuthorRequest;
 use App\Repositories\Interfaces\PostInterface;
 
 class PostController extends Controller
@@ -26,9 +27,9 @@ class PostController extends Controller
     }
 
     //Show All Posts By Same Author
-    public function allPostsByAuthor($authorID){
+    public function allPostsByAuthor(PostByAuthorRequest $request){
 
-        $postByAuthor = $this->postsRepository->allPostsByAuthor($authorID);
+        $postByAuthor = $this->postsRepository->allPostsByAuthor($request);
         return Response(PostResource::collection($postByAuthor), 200);
     }
 
