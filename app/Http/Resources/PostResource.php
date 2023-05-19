@@ -21,10 +21,10 @@ class PostResource extends JsonResource
         return [
             'post_title' => $this->title,
             'post_body' => $this->body,
-            'author_name' => $this->author ? $this->author['name'] : null,
-            'author_email' => $this->author ? $this->author['email'] : null,
-            'author_github' => $this->author ? $this->author['github'] : null,
-            'author_twitter' => $this->author ? $this->author['twitter'] : null,
+            'author_name' => $this->author->name,
+            'author_email' => $this->author->email,
+            'author_github' => $this->author->github,
+            'author_twitter' => $this->author->twitter,
         ];
     }
 }
