@@ -24,7 +24,11 @@ class PostRepository implements PostInterface
     }
 
     //Create Post
-    public function createPost($data){   
+    public function createPost($data){  
+
+        if($data->hasFile('image')) {
+            $data['image'] = $data->file('image')->store('postImages', 'public');
+        }
 
         $newPost = Post::create($data->all());
         return $newPost;
