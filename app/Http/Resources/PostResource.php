@@ -27,7 +27,8 @@ class PostResource extends JsonResource
             'author_email' => $this->author->email,
             'author_github' => $this->author->github,
             'author_twitter' => $this->author->twitter,
-            'post_comments' => CommentResource::collection($this->comments),
+            'post_comments' => $this->comments->count() > 0 ? CommentResource::collection($this->comments) : 'No comments found',
+
         ];
     }
 }
