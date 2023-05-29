@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
  */
-class CommentFactory extends Factory
+class BookFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'comment' => $this->faker->paragraph(4),
-            'post_id' => '58',
+            'book_title' => $this->faker->sentence(),
+            'book_content' => $this->faker->paragraph(1),
         ];
     }
 }
