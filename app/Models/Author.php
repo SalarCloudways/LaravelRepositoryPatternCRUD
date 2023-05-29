@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Book;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Author extends Model
 {
@@ -12,4 +13,9 @@ class Author extends Model
     protected $fillable = [
         'name', 'email', 'github', 'twitter'
     ];
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'author_book');
+    }
 }

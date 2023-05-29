@@ -3,6 +3,7 @@
 use App\Models\Author;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\AuthorResource;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthorController;
 
@@ -59,4 +60,9 @@ Route::controller(PostController::class)->group(function (){
     //Delete Post by ID
     Route::delete('/posts/{post}', 'deletePost');
 
+});
+
+Route::controller(BookController::class)->group(function (){
+    //Get All Books
+    Route::get('/books', 'allbooks');
 });
