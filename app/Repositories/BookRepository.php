@@ -15,4 +15,11 @@ class BookRepository implements BookInterface
         $result = Book::all();
         return $result;
     }
+
+    //Create Book with Authors
+    public function createbook($data){
+        $newBook = Book::create($data->all());
+        $newBook->authors()->attach($data->input('authors_ids', []));
+        return $newBook;
+    }
 }

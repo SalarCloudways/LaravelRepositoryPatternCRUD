@@ -63,6 +63,10 @@ Route::controller(PostController::class)->group(function (){
 });
 
 Route::controller(BookController::class)->group(function (){
+
     //Get All Books
     Route::get('/books', 'allbooks');
+
+    //Create Book with Authors
+    Route::post('/books', 'createbook');
 });

@@ -17,6 +17,7 @@ class BooksResource extends JsonResource
     {
         return [
             'book_title' => $this->book_title,
+            'book_content' => $this->book_content,
             'book_authors' => $this->authors->count() > 0 ? AuthorsResource::collection($this->authors) : 'No Authors Found',
         ];
     }
